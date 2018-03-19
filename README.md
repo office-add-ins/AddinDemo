@@ -1,12 +1,12 @@
 
 ## 环境
-[x] VS2017 15.5.1
-[x] Office 2016 professional plus (16.0.9029.2253)
+- [x]  VS2017 15.5.1
+- [x]  Office 2016 professional plus (16.0.9029.2253)
 
 
 ## Add-in问题一览
 
--  1、企业版pro plus，无法升级，导致无法加载Add-in Commands。（紧急）
+-  1、企业版pro plus，无法升级，导致无法加载Add-in Commands。（**非常紧急**）
 
 -  2、正式版的office.js，不支持createDocument，仅beta支持。(回复已支持，还未验证)
 
