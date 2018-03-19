@@ -23,4 +23,9 @@
 
 
 ## 参考图
+**问题1**
+<img src="https://raw.githubusercontent.com/office-add-ins/AddinDemo/master/version1.png"  alt="图片描述文字"/>
+<img src="https://raw.githubusercontent.com/office-add-ins/AddinDemo/master/version2.png"  alt="图片描述文字"/>
+
+**问题5、6**
 <img src="https://raw.githubusercontent.com/office-add-ins/AddinDemo/master/menu.png"  alt="图片描述文字"/>
