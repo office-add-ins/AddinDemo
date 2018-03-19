@@ -6,7 +6,7 @@
 
 ## Add-in问题一览
 
--  1、企业版pro plus，无法升级，导致无法加载Add-in Commands。（**非常紧急**）
+-  1、企业版pro plus，无法升级，导致无法加载Add-in Commands。（**非常紧急**）截图如下
 
 -  2、正式版的office.js，不支持createDocument，仅beta支持。(回复已支持，还未验证)
 
@@ -26,6 +26,7 @@
 **问题1**
 <img src="https://raw.githubusercontent.com/office-add-ins/AddinDemo/master/version1.png"  alt="图片描述文字"/>
 <img src="https://raw.githubusercontent.com/office-add-ins/AddinDemo/master/version2.png"  alt="图片描述文字"/>
+
 
 **问题5、6**
 <img src="https://raw.githubusercontent.com/office-add-ins/AddinDemo/master/menu.png"  alt="图片描述文字"/>
