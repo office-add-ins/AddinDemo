@@ -23,3 +23,4 @@
 
 
 ## 参考图
+<img src="https://raw.githubusercontent.com/office-add-ins/AddinDemo/master/menu.png"  alt="图片描述文字"/>
