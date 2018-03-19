@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
+
+  <!-- See https://github.com/OfficeDev/Office-Add-in-Commands-Samples for documentation-->
+
+  <!-- BeginBasicSettings: Add-in metadata, used for all versions of Office unless override provided -->
+  <!-- IMPORTANT! Id must be unique for your add-in, if you reuse this manifest ensure that you change this id to a new GUID. -->
+  <Id>09fc1c1e-32e6-485e-b339-0402e1817ef0</Id>
+
+  <!--Version. Updates from the store only get triggered if there is a version change. -->
+  <Version>1.0.0.0</Version>
+  <ProviderName>chengfeisoft Inc.</ProviderName>
+  <DefaultLocale>zh-CN</DefaultLocale>
+  <!-- The display name of your add-in. Used on the store and various places of the Office UI such as the add-ins dialog. -->
+  <DisplayName DefaultValue="Demo" />
+  <Description DefaultValue="©2015-2018 chengfeisoft.com.All Rights Reserved"/>
+  <!--Icon for your add-in. Used on installation screens and the add-ins dialog -->
+  <IconUrl DefaultValue="~remoteAppUrl/Images/icon32_32.png" />
+  <SupportUrl DefaultValue="~remoteAppUrl/store/support.html"/>
+  <!--BeginTaskpaneMode integration. Office 2013 and any client that doesn't understand commands will use this section.
+    This section will also be used if there are no VersionOverrides -->
+  <Hosts>
+    <Host Name="Document"/>
+  </Hosts>
+
+  
+  <DefaultSettings>
+    <SourceLocation DefaultValue="~remoteAppUrl/pages/login.html" />
+  </DefaultSettings>
+  <!--EndTaskpaneMode integration -->
+
+  <Permissions>ReadWriteDocument</Permissions>
+
+  <!--BeginAddinCommandsMode integration-->
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    
+    <Hosts>
+      <!--Each host can have a different set of commands. Cool huh!? -->
+      <!-- Workbook=Excel Document=Word Presentation=PowerPoint -->
+      <!-- Make sure the hosts you override match the hosts declared in the top section of the manifest -->
+      <Host xsi:type="Document">
+        <!-- Form factor. Currenly only DesktopFormFactor is supported. We will add TabletFormFactor and PhoneFormFactor in the future-->
+        <DesktopFormFactor>
+          <!--Function file is an html page that includes the javascript where functions for ExecuteAction will be called. 
+            Think of the FunctionFile as the "code behind" ExecuteFunction-->
+          <FunctionFile resid="DFZQ.FunctionFile.Url" />
+
+          <!--PrimaryCommandSurface==Main Office Ribbon-->
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <!--Use OfficeTab to extend an existing Tab. Use CustomTab to create a new tab -->
+            <!-- Documentation includes all the IDs currently tested to work -->
+            <CustomTab id="DFZQ.Tab1">
+              <!-- Ensure you provide a unique id for the group. Recommendation for any IDs is to namespace using your company name. -->
+              <Group id="DFZQ.Tab1.Group1">
+                <!--Label for your group. resid must point to a ShortString resource -->
+                <Label resid="DFZQ.Tab1.Group1.Label" />
+                <!-- Sample Todo: Each size needs its own icon resource or it will look distorted when resized -->
+                <!--Icons. Required sizes 16,31,80, optional 20, 24, 40, 48, 64. Strongly recommended to provide all sizes for great UX -->
+                <!--Use PNG icons and remember that all URLs on the resources section must use HTTPS -->
+                <Icon>
+                  <bt:Image size="16" resid="DFZQ.icon16_16" />
+                  <bt:Image size="32" resid="DFZQ.icon32_32" />
+                  <bt:Image size="80" resid="DFZQ.icon80_80" />
+                </Icon>
+
+                <Control xsi:type="Button" id="Save">
+                  <Label resid="Save.Label" />
+                  <Supertip>
+                    <!-- ToolTip title. resid must point to a ShortString resource. -->
+                    <Title resid="Save.Label" />
+                    <!-- ToolTip description. resid must point to a LongString resource. -->
+                    <Description resid="Save.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="DFZQ.Menu_Save16_16" />
+                    <bt:Image size="32" resid="DFZQ.Menu_Save32_32" />
+                    <bt:Image size="80" resid="DFZQ.Menu_Save80_80" />
+                  </Icon>
+
+                  <!-- This is what happens when the command is triggered (E.g. click on the Ribbon). Supported actions are ExecuteFunction or ShowTaskpane. -->
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>save</FunctionName>
+                  </Action>
+                </Control>
+                
+                <Control xsi:type="Button" id="GenerateReport">
+                  <Label resid="GenerateReport.Label" />
+                  <Supertip>
+                    <!-- ToolTip title. resid must point to a ShortString resource. -->
+                    <Title resid="GenerateReport.Label" />
+                    <!-- ToolTip description. resid must point to a LongString resource. -->
+                    <Description resid="GenerateReport.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="DFZQ.Menu_Report_16x16" />
+                    <bt:Image size="32" resid="DFZQ.Menu_Report_32x32" />
+                    <bt:Image size="80" resid="DFZQ.Menu_Report_80x80" />
+                  </Icon>
+
+                  <!-- This is what happens when the command is triggered (E.g. click on the Ribbon). 
+                  Supported actions are ExecuteFunction or ShowTaskpane. -->
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>showReport</FunctionName>
+                  </Action>
+                </Control>
+
+                <Control xsi:type="Button" id="GenerateReport2">
+                  <Label resid="GenerateReport.Label" />
+                  <Supertip>
+                    <!-- ToolTip title. resid must point to a ShortString resource. -->
+                    <Title resid="GenerateReport.Label" />
+                    <!-- ToolTip description. resid must point to a LongString resource. -->
+                    <Description resid="GenerateReport.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="DFZQ.Menu_Report_16x16" />
+                    <bt:Image size="32" resid="DFZQ.Menu_Report_32x32" />
+                    <bt:Image size="80" resid="DFZQ.Menu_Report_80x80" />
+                  </Icon>
+
+                  <!-- This is what happens when the command is triggered (E.g. click on the Ribbon). 
+                  Supported actions are ExecuteFunction or ShowTaskpane. -->
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>showReport</FunctionName>
+                  </Action>
+                </Control>
+                    
+                <Control xsi:type="Button" id="GenerateReport3">
+                  <Label resid="GenerateReport.Label" />
+                  <Supertip>
+                    <!-- ToolTip title. resid must point to a ShortString resource. -->
+                    <Title resid="GenerateReport.Label" />
+                    <!-- ToolTip description. resid must point to a LongString resource. -->
+                    <Description resid="GenerateReport.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="DFZQ.Menu_Report_16x16" />
+                    <bt:Image size="32" resid="DFZQ.Menu_Report_32x32" />
+                    <bt:Image size="80" resid="DFZQ.Menu_Report_80x80" />
+                  </Icon>
+
+                  <!-- This is what happens when the command is triggered (E.g. click on the Ribbon). 
+                  Supported actions are ExecuteFunction or ShowTaskpane. -->
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>showReport</FunctionName>
+                  </Action>
+                </Control>
+              </Group>
+
+              <Group id="DFZQ.Tab1.Group2">
+                <!--Label for your group. resid must point to a ShortString resource -->
+                <Label resid="DFZQ.Tab1.Group2.Label" />
+                <!-- Sample Todo: Each size needs its own icon resource or it will look distorted when resized -->
+                <!--Icons. Required sizes 16,31,80, optional 20, 24, 40, 48, 64. Strongly recommended to provide all sizes for great UX -->
+                <!--Use PNG icons and remember that all URLs on the resources section must use HTTPS -->
+                <Icon>
+                  <bt:Image size="16" resid="DFZQ.icon16_16" />
+                  <bt:Image size="32" resid="DFZQ.icon32_32" />
+                  <bt:Image size="80" resid="DFZQ.icon80_80" />
+                </Icon>
+
+                <Control xsi:type="Button" id="UpdateFinanical">
+                  <Label resid="UpdateFinanical.Label" />
+                  <Supertip>
+                    <!-- ToolTip title. resid must point to a ShortString resource. -->
+                    <Title resid="UpdateFinanical.Label" />
+                    <!-- ToolTip description. resid must point to a LongString resource. -->
+                    <Description resid="UpdateFinanical.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="DFZQ.Menu_Refresh_16x16" />
+                    <bt:Image size="32" resid="DFZQ.Menu_Refresh_32x32" />
+                    <bt:Image size="80" resid="DFZQ.Menu_Refresh_80x80" />
+                  </Icon>
+
+                  <!-- This is what happens when the command is triggered (E.g. click on the Ribbon). Supported actions are ExecuteFunction or ShowTaskpane. -->
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>updateFinanical</FunctionName>
+                  </Action>
+                </Control>
+
+                <Control xsi:type="Button" id="UpdateExcel">
+                  <Label resid="UpdateExcel.Label" />
+                  <Supertip>
+                    <!-- ToolTip title. resid must point to a ShortString resource. -->
+                    <Title resid="UpdateExcel.Label" />
+                    <!-- ToolTip description. resid must point to a LongString resource. -->
+                    <Description resid="UpdateExcel.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="DFZQ.Menu_Excel_16x16" />
+                    <bt:Image size="32" resid="DFZQ.Menu_Excel_32x32" />
+                    <bt:Image size="80" resid="DFZQ.Menu_Excel_80x80" />
+                  </Icon>
+
+                  <!-- This is what happens when the command is triggered (E.g. click on the Ribbon). Supported actions are ExecuteFunction or ShowTaskpane. -->
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>updateExcel</FunctionName>
+                  </Action>
+                </Control>
+
+              </Group>
+
+              <Group id="DFZQ.Tab1.Group3">
+                <!--Label for your group. resid must point to a ShortString resource -->
+                <Label resid="DFZQ.Tab1.Group3.Label" />
+                <!-- Sample Todo: Each size needs its own icon resource or it will look distorted when resized -->
+                <!--Icons. Required sizes 16,31,80, optional 20, 24, 40, 48, 64. Strongly recommended to provide all sizes for great UX -->
+                <!--Use PNG icons and remember that all URLs on the resources section must use HTTPS -->
+                <Icon>
+                  <bt:Image size="16" resid="DFZQ.icon16_16" />
+                  <bt:Image size="32" resid="DFZQ.icon32_32" />
+                  <bt:Image size="80" resid="DFZQ.icon80_80" />
+                </Icon>
+
+                <Control xsi:type="Button" id="UpdateTitle">
+                  <Label resid="UpdateTitle.Label" />
+                  <Supertip>
+                    <!-- ToolTip title. resid must point to a ShortString resource. -->
+                    <Title resid="UpdateTitle.Label" />
+                    <!-- ToolTip description. resid must point to a LongString resource. -->
+                    <Description resid="UpdateTitle.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="DFZQ.Menu_Title_16x16" />
+                    <bt:Image size="32" resid="DFZQ.Menu_Title_32x32" />
+                    <bt:Image size="80" resid="DFZQ.Menu_Title_80x80" />
+                  </Icon>
+
+                  <!-- This is what happens when the command is triggered (E.g. click on the Ribbon). Supported actions are ExecuteFunction or ShowTaskpane. -->
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>updateTitle</FunctionName>
+                  </Action>
+                </Control>
+                
+                <Control xsi:type="Button" id="UpdateAll">
+                  <Label resid="UpdateAll.Label" />
+                  <Supertip>
+                    <!-- ToolTip title. resid must point to a ShortString resource. -->
+                    <Title resid="UpdateAll.Label" />
+                    <!-- ToolTip description. resid must point to a LongString resource. -->
+                    <Description resid="UpdateAll.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="DFZQ.Menu_UpdateAll_16x16" />
+                    <bt:Image size="32" resid="DFZQ.Menu_UpdateAll_32x32" />
+                    <bt:Image size="80" resid="DFZQ.Menu_UpdateAll_80x80" />
+                  </Icon>
+
+                  <!-- This is what happens when the command is triggered (E.g. click on the Ribbon). Supported actions are ExecuteFunction or ShowTaskpane. -->
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>updateAll</FunctionName>
+                  </Action>
+                </Control>
+              </Group>
+              <Group id="DFZQ.Tab1.Group5">
+                <!--Label for your group. resid must point to a ShortString resource -->
+                <Label resid="DFZQ.Tab1.Group5.Label" />
+                <!-- Sample Todo: Each size needs its own icon resource or it will look distorted when resized -->
+                <!--Icons. Required sizes 16,31,80, optional 20, 24, 40, 48, 64. Strongly recommended to provide all sizes for great UX -->
+                <!--Use PNG icons and remember that all URLs on the resources section must use HTTPS -->
+                <Icon>
+                  <bt:Image size="16" resid="DFZQ.icon16_16" />
+                  <bt:Image size="32" resid="DFZQ.icon32_32" />
+                  <bt:Image size="80" resid="DFZQ.icon80_80" />
+                </Icon>
+
+                <Control xsi:type="Button" id="SaveForDraft">
+                  <Label resid="SaveForDraft.Label" />
+                  <Supertip>
+                    <!-- ToolTip title. resid must point to a ShortString resource. -->
+                    <Title resid="SaveForDraft.Label" />
+                    <!-- ToolTip description. resid must point to a LongString resource. -->
+                    <Description resid="SaveForDraft.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="DFZQ.Menu_SaveForDraft_16x16" />
+                    <bt:Image size="32" resid="DFZQ.Menu_SaveForDraft_32x32" />
+                    <bt:Image size="80" resid="DFZQ.Menu_SaveForDraft_80x80" />
+                  </Icon>
+
+                  <!-- This is what happens when the command is triggered (E.g. click on the Ribbon). Supported actions are ExecuteFunction or ShowTaskpane. -->
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>saveForDraft</FunctionName>
+                  </Action>
+                </Control>
+
+                <Control xsi:type="Button" id="History">
+                  <Label resid="History.Label" />
+                  <Supertip>
+                    <!-- ToolTip title. resid must point to a ShortString resource. -->
+                    <Title resid="History.Label" />
+                    <!-- ToolTip description. resid must point to a LongString resource. -->
+                    <Description resid="History.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="DFZQ.Menu_History_16x16" />
+                    <bt:Image size="32" resid="DFZQ.Menu_History_32x32" />
+                    <bt:Image size="80" resid="DFZQ.Menu_History_80x80" />
+                  </Icon>
+
+                  <!-- This is what happens when the command is triggered (E.g. click on the Ribbon). Supported actions are ExecuteFunction or ShowTaskpane. -->
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>history</FunctionName>
+                  </Action>
+                </Control>
+                
+              </Group>
+
+              <Group id="DFZQ.Tab1.Group7">
+                <!--Label for your group. resid must point to a ShortString resource -->
+                <Label resid="DFZQ.Tab1.Group7.Label" />
+                <!-- Sample Todo: Each size needs its own icon resource or it will look distorted when resized -->
+                <!--Icons. Required sizes 16,31,80, optional 20, 24, 40, 48, 64. Strongly recommended to provide all sizes for great UX -->
+                <!--Use PNG icons and remember that all URLs on the resources section must use HTTPS -->
+                <Icon>
+                  <bt:Image size="16" resid="DFZQ.icon16_16" />
+                  <bt:Image size="32" resid="DFZQ.icon32_32" />
+                  <bt:Image size="80" resid="DFZQ.icon80_80" />
+                </Icon>
+
+                <Control xsi:type="Button" id="AboutUs">
+                  <Label resid="AboutUs.Label" />
+                  <Supertip>
+                    <!-- ToolTip title. resid must point to a ShortString resource. -->
+                    <Title resid="AboutUs.Label" />
+                    <!-- ToolTip description. resid must point to a LongString resource. -->
+                    <Description resid="AboutUs.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="DFZQ.Menu_AboutUs_16x16" />
+                    <bt:Image size="32" resid="DFZQ.Menu_AboutUs_32x32" />
+                    <bt:Image size="80" resid="DFZQ.Menu_AboutUs_80x80" />
+                  </Icon>
+
+                  <!-- This is what happens when the command is triggered (E.g. click on the Ribbon). Supported actions are ExecuteFunction or ShowTaskpane. -->
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>aboutUs</FunctionName>
+                  </Action>
+                </Control>
+
+              </Group>
+              
+              <!-- Label of your tab -->
+              <!-- If validating with XSD it needs to be at the end, we might change this before release -->
+              <Label resid="DFZQ.Tab1.Label" />
+            </CustomTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+    <Resources>
+      <bt:Images>
+        <bt:Image id="DFZQ.icon16_16" DefaultValue="~remoteAppUrl/Images/icon16_16.png" />
+        <bt:Image id="DFZQ.icon32_32" DefaultValue="~remoteAppUrl/Images/icon32_32.png" />
+        <bt:Image id="DFZQ.icon80_80" DefaultValue="~remoteAppUrl/Images/icon80_80.png" />
+
+        <bt:Image id="DFZQ.Menu_Report_16x16" DefaultValue="~remoteAppUrl/Images/Menu_Report1_16x16.png" />
+        <bt:Image id="DFZQ.Menu_Report_32x32" DefaultValue="~remoteAppUrl/Images/Menu_Report1_32x32.png" />
+        <bt:Image id="DFZQ.Menu_Report_80x80" DefaultValue="~remoteAppUrl/Images/Menu_Report1_80x80.png" />
+
+        <bt:Image id="DFZQ.Menu_Refresh_16x16" DefaultValue="~remoteAppUrl/Images/Menu_UpdateFinancial1_16x16.png" />
+        <bt:Image id="DFZQ.Menu_Refresh_32x32" DefaultValue="~remoteAppUrl/Images/Menu_UpdateFinancial1_32x32.png" />
+        <bt:Image id="DFZQ.Menu_Refresh_80x80" DefaultValue="~remoteAppUrl/Images/Menu_UpdateFinancial1_80x80.png" />
+
+        <bt:Image id="DFZQ.Menu_Excel_16x16" DefaultValue="~remoteAppUrl/Images/Menu_UpdateExcel1_16x16.png" />
+        <bt:Image id="DFZQ.Menu_Excel_32x32" DefaultValue="~remoteAppUrl/Images/Menu_UpdateExcel1_32x32.png" />
+        <bt:Image id="DFZQ.Menu_Excel_80x80" DefaultValue="~remoteAppUrl/Images/Menu_UpdateExcel1_80x80.png" />
+
+        <bt:Image id="DFZQ.Menu_Title_16x16" DefaultValue="~remoteAppUrl/Images/Menu_UpdateTitle1_16x16.png" />
+        <bt:Image id="DFZQ.Menu_Title_32x32" DefaultValue="~remoteAppUrl/Images/Menu_UpdateTitle1_32x32.png" />
+        <bt:Image id="DFZQ.Menu_Title_80x80" DefaultValue="~remoteAppUrl/Images/Menu_UpdateTitle1_80x80.png" />
+
+        <bt:Image id="DFZQ.Menu_UpdateAll_16x16" DefaultValue="~remoteAppUrl/Images/Menu_UpdateAll1_16x16.png" />
+        <bt:Image id="DFZQ.Menu_UpdateAll_32x32" DefaultValue="~remoteAppUrl/Images/Menu_UpdateAll1_32x32.png" />
+        <bt:Image id="DFZQ.Menu_UpdateAll_80x80" DefaultValue="~remoteAppUrl/Images/Menu_UpdateAll1_80x80.png" />
+
+        <bt:Image id="DFZQ.Menu_InsertStock_16x16" DefaultValue="~remoteAppUrl/Images/Menu_InsertStock_16x16.png" />
+        <bt:Image id="DFZQ.Menu_InsertStock_32x32" DefaultValue="~remoteAppUrl/Images/Menu_InsertStock_32x32.png" />
+        <bt:Image id="DFZQ.Menu_InsertStock_80x80" DefaultValue="~remoteAppUrl/Images/Menu_InsertStock_80x80.png" />
+
+        <bt:Image id="DFZQ.Menu_AboutUs_16x16" DefaultValue="~remoteAppUrl/Images/Menu_AboutUS_16x16.png" />
+        <bt:Image id="DFZQ.Menu_AboutUs_32x32" DefaultValue="~remoteAppUrl/Images/Menu_AboutUS_32x32.png" />
+        <bt:Image id="DFZQ.Menu_AboutUs_80x80" DefaultValue="~remoteAppUrl/Images/Menu_AboutUS_80x80.png" />
+
+        <bt:Image id="DFZQ.Menu_Save16_16" DefaultValue="~remoteAppUrl/Images/Menu_Save1_16x16.png" />
+        <bt:Image id="DFZQ.Menu_Save32_32" DefaultValue="~remoteAppUrl/Images/Menu_Save1_32x32.png" />
+        <bt:Image id="DFZQ.Menu_Save80_80" DefaultValue="~remoteAppUrl/Images/Menu_Save1_80x80.png" />
+
+        <bt:Image id="DFZQ.Menu_SaveForDraft_16x16" DefaultValue="~remoteAppUrl/Images/Menu_SaveForDraft1_16x16.png" />
+        <bt:Image id="DFZQ.Menu_SaveForDraft_32x32" DefaultValue="~remoteAppUrl/Images/Menu_SaveForDraft1_32x32.png" />
+        <bt:Image id="DFZQ.Menu_SaveForDraft_80x80" DefaultValue="~remoteAppUrl/Images/Menu_SaveForDraft1_80x80.png" />
+
+        <bt:Image id="DFZQ.Menu_History_16x16" DefaultValue="~remoteAppUrl/Images/Menu_History2_16x16.png" />
+        <bt:Image id="DFZQ.Menu_History_32x32" DefaultValue="~remoteAppUrl/Images/Menu_History2_32x32.png" />
+        <bt:Image id="DFZQ.Menu_History_80x80" DefaultValue="~remoteAppUrl/Images/Menu_History2_80x80.png" />
+
+        <bt:Image id="DFZQ.Menu_Share_16x16" DefaultValue="~remoteAppUrl/Images/Menu_Share_16x16.png" />
+        <bt:Image id="DFZQ.Menu_Share_32x32" DefaultValue="~remoteAppUrl/Images/Menu_Share_32x32.png" />
+        <bt:Image id="DFZQ.Menu_Share_80x80" DefaultValue="~remoteAppUrl/Images/Menu_Share_80x80.png" />
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="DFZQ.FunctionFile.Url" DefaultValue="~remoteAppUrl/index.html" />
+      </bt:Urls>
+      <!-- ShortStrings max characters==125. -->
+      <bt:ShortStrings>
+        <bt:String id="DFZQ.Tab1.Label" DefaultValue="Test Menu" />
+        <bt:String id="DFZQ.Tab1.Group1.Label" DefaultValue=" " />
+        <bt:String id="DFZQ.Tab1.Group2.Label" DefaultValue=" " />
+        <bt:String id="DFZQ.Tab1.Group3.Label" DefaultValue="   " />
+        <bt:String id="DFZQ.Tab1.Group4.Label" DefaultValue="   " />
+        <bt:String id="DFZQ.Tab1.Group7.Label" DefaultValue="   " />
+        <bt:String id="DFZQ.Tab1.Group6.Label" DefaultValue="   " />
+        <bt:String id="DFZQ.Tab1.Group5.Label" DefaultValue="   " />
+        
+        <bt:String id="GenerateReport.Label" DefaultValue="生成报告" />
+        <bt:String id="UpdateFinanical.Label" DefaultValue="更新行情" />
+        <bt:String id="UpdateExcel.Label" DefaultValue="更新模型" />
+        <bt:String id="UpdateTitle.Label" DefaultValue="更新标题" />
+        <bt:String id="UpdateAll.Label" DefaultValue="更新全部" />
+        <bt:String id="InsertStock.Label" DefaultValue="插入股票" />
+        <bt:String id="AboutUs.Label" DefaultValue="关于我们" />
+        <bt:String id="Save.Label" DefaultValue="校验报告" />
+        <bt:String id="SaveForDraft.Label" DefaultValue="存为草稿" />
+        <bt:String id="History.Label" DefaultValue="历史记录" />
+        <bt:String id="Share.Label" DefaultValue="一键分享" />
+      </bt:ShortStrings>
+      <!-- LongStrings max characters==250. -->
+      <bt:LongStrings>
+        <bt:String id="GenerateReport.Tooltip" DefaultValue="点击生成报告" />
+        <bt:String id="UpdateFinanical.Tooltip" DefaultValue="点击更新行情数据" />
+        <bt:String id="UpdateExcel.Tooltip" DefaultValue="点击更新估值模型数据" />
+        <bt:String id="UpdateTitle.Tooltip" DefaultValue="点击更新标题" />
+        <bt:String id="UpdateAll.Tooltip" DefaultValue="点击更新全部" />
+        <bt:String id="InsertStock.Tooltip" DefaultValue="点击插入股票" />
+        <bt:String id="AboutUs.Tooltip" DefaultValue="点击关于我们" />
+        <bt:String id="Save.Tooltip" DefaultValue="点击保存" />
+        <bt:String id="SaveForDraft.Tooltip" DefaultValue="点击存为草稿" />
+        <bt:String id="History.Tooltip" DefaultValue="点击查看历史报告" />
+        <bt:String id="Share.Tooltip" DefaultValue="点击一键分享给你的朋友" />
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>
