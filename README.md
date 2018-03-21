@@ -21,7 +21,8 @@
 -  7、目前Office UI库，有以下2个cdn，并且两者使用的样式，方法 有很大区别。
       只有jquery能在vs里调试，react无法在vs里调试，
 
-
+-  8、 无法检测到Word或Excel等关闭，打开等事件。
+      
 ## 参考图
 **问题1**
 <img src="https://raw.githubusercontent.com/office-add-ins/AddinDemo/master/version1.png"  alt="图片描述文字"/>
