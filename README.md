@@ -8,7 +8,7 @@
 
 -  1、企业版pro plus，无法升级，导致无法加载Add-in Commands。（**非常紧急**）截图如下
 
--  2、正式版的office.js，不支持createDocument，仅beta支持。(已验证)
+-  2、New Word JavaScript APIs (1.4)，添加了CreateDocument方法，但是不能对create后的Document的做任何操作。
 
 -  3、office.js暂不支持插入OLE对象，如Excel等（紧急）
 
