@@ -10,7 +10,7 @@
 
 -  2、New Word JavaScript APIs (1.4)，添加了CreateDocument方法，但是不能对create后的Document做任何操作。（**非常紧急**）
 
--  3、office.js暂不支持插入OLE对象，如Excel等（紧急）
+-  3、office.js暂不支持插入OLE对象，如Excel等（**非常紧急**）
 
 -  4、无法定位shape，及嵌套在shape的table。
 
