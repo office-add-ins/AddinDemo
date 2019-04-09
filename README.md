@@ -7,6 +7,16 @@
 ## QA
 -   Word,Excel Open,Save,Close Events don't be detected。（**★★★★★**）
 
+    - [x]  Excel Open Event
+    - [x]  Excel Close Event
+    - [x]  Excel BeforeClose Event
+    - [x]  Workbook activate event
+
+    - [x]  Word Open Event
+    - [x]  Word Close Event
+    - [x]  Word beforeClose event
+    - [x]  Document activate event
+
 -   Don't support shape object in Word。（**★★★★★**）
 
 -   The command text contains Chinese Characters, display newline.（**★★☆☆☆**）
