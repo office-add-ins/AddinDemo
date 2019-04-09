@@ -12,5 +12,12 @@
 -   The command text contains Chinese Characters, display newline.（**★★☆☆☆**）
 
 -   Don't support insert OLE Object.（**★★☆☆☆**）
+
+-   Custom Properties Bug.
+
+    [https://github.com/OfficeDev/office-js/issues/273](https://github.com/OfficeDev/office-js/issues/273).
+
+
+-   Dialog Two
  
 **QA**
