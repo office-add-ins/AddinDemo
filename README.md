@@ -8,7 +8,7 @@
 -   Need events for Office Web versions of Word and Excel（**★★★★★**）
 
     [https://officespdev.uservoice.com/forums/224641-feature-requests-and-feedback/suggestions/7322108-need-events-for-office-web-versions-of-word-and-ex](https://officespdev.uservoice.com/forums/224641-feature-requests-and-feedback/suggestions/7322108-need-events-for-office-web-versions-of-word-and-ex)
--   Support shape object in Word（**★★★★★**）
+-   Support Shape object in Word（**★★★★★**）
 
 -   [Bug]The command text contains Chinese Characters, display newline（**★★☆☆☆**）
 
