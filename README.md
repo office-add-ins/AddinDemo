@@ -17,8 +17,3 @@
 -   [Bug]Custom Properties save
 
     [https://github.com/OfficeDev/office-js/issues/273](https://github.com/OfficeDev/office-js/issues/273).
-
-
--   Dialog Two
- 
-**QA**
