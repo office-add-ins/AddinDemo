@@ -5,25 +5,16 @@
 
 
 ## QA
--   Word,Excel Open,Save,Close Events don't be detected。（**★★★★★**）
+-   Need events for Office Web versions of Word and Excel（**★★★★★**）
 
-    - [x]  Excel Open Event
-    - [x]  Excel Close Event
-    - [x]  Excel BeforeClose Event
-    - [x]  Workbook activate event
+    [https://officespdev.uservoice.com/forums/224641-feature-requests-and-feedback/suggestions/7322108-need-events-for-office-web-versions-of-word-and-ex](https://officespdev.uservoice.com/forums/224641-feature-requests-and-feedback/suggestions/7322108-need-events-for-office-web-versions-of-word-and-ex)
+-   Support shape object in Word（**★★★★★**）
 
-    - [x]  Word Open Event
-    - [x]  Word Close Event
-    - [x]  Word beforeClose event
-    - [x]  Document activate event
+-   [Bug]The command text contains Chinese Characters, display newline（**★★☆☆☆**）
 
--   Don't support shape object in Word。（**★★★★★**）
+-   Support insert OLE Object（**★★☆☆☆**）
 
--   The command text contains Chinese Characters, display newline.（**★★☆☆☆**）
-
--   Don't support insert OLE Object.（**★★☆☆☆**）
-
--   Custom Properties Bug.
+-   [Bug]Custom Properties save
 
     [https://github.com/OfficeDev/office-js/issues/273](https://github.com/OfficeDev/office-js/issues/273).
 
