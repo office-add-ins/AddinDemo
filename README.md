@@ -17,6 +17,8 @@
 -   [Bug]Custom Properties save
 
     [https://github.com/OfficeDev/office-js/issues/273](https://github.com/OfficeDev/office-js/issues/273).
+    
+    https://stackoverflow.com/questions/49767164/custompropertycollectionaddkey-value-method
 
 - How can I publish mainifest through http?
 
