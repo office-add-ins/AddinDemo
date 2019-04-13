@@ -17,3 +17,7 @@
 -   [Bug]Custom Properties save
 
     [https://github.com/OfficeDev/office-js/issues/273](https://github.com/OfficeDev/office-js/issues/273).
+
+- How can I publish mainifest through http?
+
+[http://xxx/xx.xml](http://xxx/xx.xml)
