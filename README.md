@@ -24,4 +24,4 @@
 
 - How can I publish mainifest through http?
 
-[http://xxx/xx.xml](http://xxx/xx.xml)
+    [http://xxx/xx.xml](http://xxx/xx.xml)
