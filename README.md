@@ -20,8 +20,8 @@
     
     https://stackoverflow.com/questions/49767164/custompropertycollectionaddkey-value-method
 
-- How can I update ribbon buttons dynamic?
+- How can I update ribbon buttons dynamic?（**★★☆☆☆**）
 
-- How can I publish mainifest through http?
+- How can I publish mainifest through http?（**★★★★★**）
 
     [http://xxx/xx.xml](http://xxx/xx.xml)
